@@ -4,6 +4,7 @@ import { BrowserRouter, useRouteError, createBrowserRouter, RouterProvider } fro
 import App from './App'
 import './index.css'
 import NormalPattern from './1-normal-pattern/task-app'
+import HocPattern from './2-hoc-pattern/task-app'
 
 function ErrorPage() {
   const error = useRouteError();
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: '/normal_pattern',
         element: <NormalPattern />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/hoc_pattern',
+        element: <HocPattern />,
         errorElement: <ErrorPage />,
       }
     ]

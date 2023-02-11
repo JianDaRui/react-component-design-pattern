@@ -1,22 +1,11 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
-import { NavLink, Routes, Route, createBrowserRouter, useNavigate } from 'react-router-dom'
-import './App.css'
+import { NavLink, Routes, Route, createBrowserRouter, Navigate } from 'react-router-dom'
 import NormalPattern from './1-normal-pattern/task-app'
-
-const Home = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate('/normal_pattern')
-  }, [])
-  return (
-    'Home'
-  )
-}
+import HocPattern from './2-hoc-pattern/task-app'
+import './App.css'
 
 function NavList() {
-  // This styling will be applied to a <NavLink> when the
-  // route that it links to is currently selected.
   let activeStyle = {
     textDecoration: "underline",
   };
@@ -36,18 +25,29 @@ function NavList() {
             Normal Pattern
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/hoc_pattern"
+            style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          >
+            HOC Pattern
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
 }
+
 export default function App() {
-  const [count, setCount] = useState(0)
   return (
     <div>
       <NavList />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Navigate to="/normal_pattern" replace={true} />} />
         <Route path='/normal_pattern' element={<NormalPattern />} />
+        <Route path='/hoc_pattern' element={<HocPattern />} />
       </Routes>
     </div>
   )

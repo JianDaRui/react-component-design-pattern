@@ -23,3 +23,5 @@ export default function TaskList({ tasks, changeTask, deleteTask }) {
     </ul>
   )
 }
+
+TaskList.Task = Task

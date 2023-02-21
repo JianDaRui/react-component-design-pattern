@@ -40,3 +40,13 @@ export default function Task({ task, changeTask, deleteTask}) {
     </label>
   );
 }
+
+function Button({children, onClick}) {
+  return <button onClick={onClick}>{children}</button>
+}
+function Input(props) {
+  return <input {...props}/>
+}
+
+Task.DeleteButton = Button
+Task.CheckBox = Input

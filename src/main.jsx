@@ -5,6 +5,8 @@ import App from './App'
 import './index.css'
 import NormalPattern from './1-normal-pattern/task-app'
 import HocPattern from './2-hoc-pattern/task-app'
+import RenderPropsPattern from './3-render-props-pattern/task-app'
+import CompoundComponentPattern from './4-compound-component-pattern/task-app'
 
 function ErrorPage() {
   const error = useRouteError();
@@ -36,10 +38,20 @@ const router = createBrowserRouter([
         path: '/hoc_pattern',
         element: <HocPattern />,
         errorElement: <ErrorPage />,
+      },
+      {
+        path: '/render_props_pattern',
+        element: <RenderPropsPattern />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/compound_component_pattern',
+        element: <CompoundComponentPattern />,
+        errorElement: <ErrorPage />,
       }
     ]
   },
-  
+
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
